@@ -376,17 +376,7 @@ numeros.forEach(function(numero) {
 // 5
 ```
 
-#### 25. React: O que é e como você pode aproveitar as vantagens do PureComponent?
-
-No React, o `PureComponent` é um componente que implementa o método `shouldComponentUpdate` de forma otimizada, comparando automaticamente as propriedades e o estado do componente antes de decidir se deve renderizar novamente ou não.
-
-Ao contrário de um componente de classe padrão, que sempre retorna `true` no `shouldComponentUpdate`, o `PureComponent` compara as propriedades e o estado atual do componente com seus valores anteriores, retornando `true` somente se houver alguma diferença. Isso permite que o React evite renderizações desnecessárias, melhorando o desempenho da aplicação.
-
-Para aproveitar as vantagens do `PureComponent`, é importante ter em mente que ele só é eficiente se as propriedades do componente forem imutáveis, ou seja, se elas nunca mudarem durante a vida útil do componente. Isso porque a comparação do `shouldComponentUpdate` é feita por referência e não por valor, ou seja, se a referência a uma propriedade mudar, o `PureComponent` não será capaz de detectar essa mudança.
-
-Portanto, ao usar o `PureComponent`, é importante garantir que as propriedades sejam imutáveis, ou usar bibliotecas como o `Immutable.js` para gerenciar as propriedades de forma imutável. Além disso, também é importante evitar a modificação direta do estado do componente, e sim sempre criar um novo objeto de estado e atribuí-lo ao estado do componente usando o método `setState`.
-
-#### 26. O que é serverless computing?` \
+#### 26. O que é serverless computing?
 
 Serverless computing é um modelo de computação em nuvem que permite que os desenvolvedores criem e executem aplicativos sem a necessidade de gerenciar servidores ou infraestrutura. Em outras palavras, o servidor é gerenciado por um provedor de nuvem, deixando o desenvolvedor livre para se concentrar apenas na lógica do aplicativo.
 
@@ -433,63 +423,427 @@ Por outro lado, uma estratégia mobile-first é um processo de design e desenvol
 
 #### 1` Mencione qual é a diferença entre PUT e POST?
 
+`PUT` e `POST` são dois dos principais métodos HTTP usados para enviar informações do cliente para o servidor. A diferença entre os dois métodos está relacionada ao objetivo de cada um deles:
+
+- `POST` é usado para enviar dados novos ou atualizados para o servidor. O `POST` é comumente usado para criar novos recursos no servidor, enviar formulários, fazer upload de arquivos, etc. Quando um cliente envia uma solicitação `POST` para o servidor, o servidor cria um novo recurso ou atualiza um recurso existente com os dados enviados.
+- `PUT` é usado para atualizar um recurso existente no servidor. O `PUT` é comumente usado para atualizar dados já existentes em um recurso no servidor. Quando um cliente envia uma solicitação `PUT` para o servidor, ele deve fornecer todos os dados necessários para atualizar completamente o recurso.
+
 #### 2. O que são atributos defer e assync em uma tag `<script>`?
+
+Os atributos `defer` e `async` em uma tag `<script>` permitem que o carregamento e a execução de scripts sejam gerenciados de maneira mais eficiente.
+
+O atributo `defer` especifica que o script deve ser executado somente após o carregamento completo da página. Isso significa que o script é carregado em segundo plano enquanto o navegador continua a processar o restante da página, mas a execução do script é adiada até que a página seja completamente carregada. O uso de `defer` é recomendado para scripts que não dependem de outros recursos na página, como estilos ou outros scripts.
+
+O atributo `async`, por outro lado, especifica que o script pode ser executado assim que ele for carregado, mesmo que a página ainda esteja sendo processada. Isso significa que o navegador pode executar o script assim que o download for concluído, sem esperar pelo restante da página. O uso de `async` é recomendado para scripts que não dependem de outros scripts ou recursos na página e que podem ser executados de maneira independente.
 
 #### 3. O que significa SOLID? Quais são seus princípios?
 
+SOLID é um acrônimo que representa cinco princípios da programação orientada a objetos que visam tornar o código mais fácil de entender, modificar e manter. Os princípios SOLID são os seguintes:
+
+- 1. Single Responsibility Principle (Princípio da Responsabilidade Única): cada classe deve ter uma única responsabilidade. Isso significa que uma classe não deve ter mais de uma razão para mudar e deve ser responsável por apenas uma parte da funcionalidade do software.
+- 2. Open-Closed Principle (Princípio Aberto-Fechado): as classes devem estar abertas para extensão, mas fechadas para modificação. Isso significa que o comportamento de uma classe deve ser estendido sem a necessidade de alterar seu código-fonte original.
+- 3. Liskov Substitution Principle (Princípio da Substituição de Liskov): as classes derivadas devem ser substituíveis por suas classes base. Isso significa que as classes derivadas devem obedecer ao contrato da classe base e não devem alterar o comportamento pré-definido da classe base.
+- 4. Interface Segregation Principle (Princípio da Segregação de Interfaces): os clientes não devem ser forçados a depender de interfaces que não usam. Isso significa que as interfaces devem ser projetadas para atender às necessidades específicas dos clientes e não devem conter métodos que os clientes não precisam.
+- 5. Dependency Inversion Principle (Princípio da Inversão de Dependência): os módulos de alto nível não devem depender de módulos de baixo nível, ambos devem depender de abstrações. Isso significa que as dependências devem ser abstraídas em interfaces e as classes devem depender dessas interfaces em vez de depender de implementações concretas.
+
+Esses princípios ajudam a produzir um código mais flexível, extensível e manutenível, o que é especialmente importante em projetos maiores e mais complexos. Eles são frequentemente usados em conjunto com padrões de design orientados a objetos para criar software de alta qualidade.
+
 #### 4. O que é coerção em JavaScript?
+
+Coerção (ou Type Coercion) em JavaScript é a conversão automática de valores de um tipo de dado para outro tipo de dado, que ocorre quando operações ou comparações são realizadas em valores de tipos diferentes. Isso pode acontecer implicitamente, sem que o programador esteja ciente, ou explicitamente, através de conversão de tipos utilizando funções como parseInt() ou parseFloat().
+
+Por exemplo, se somarmos uma string com um número, a string será convertida automaticamente em um número: <br/>
+`console.log('1' + 2); // 3`
+
+No exemplo acima, a string '1' é convertida para o número 1 e então é realizada a soma com o número 2, resultando em 3.
+
+No entanto, a coerção nem sempre é previsível ou intuitiva, e pode levar a bugs ou comportamentos inesperados no código. Por isso, é importante ter conhecimento sobre como a coerção funciona em JavaScript e evitar situações que possam causar problemas.
 
 #### 5. SASS: O que é um Mixin e como usá-lo?
 
+No Sass, um mixin é uma forma de agrupar declarações de estilo reutilizáveis em um bloco nomeado, que pode ser incluído em outros blocos de estilo. Isso permite que você defina um conjunto de estilos que pode ser reutilizado em várias partes do seu código, evitando a repetição desnecessária de código.
+
+A sintaxe para definir um mixin é a seguinte:
+
+```
+@mixin nome-do-mixin {
+  // declarações de estilo aqui
+}
+```
+
+Para usar um mixin em um bloco de estilo, você utiliza a diretiva @include seguida pelo nome do mixin:
+
+```
+.classe-do-elemento {
+  @include nome-do-mixin;
+}
+```
+
+Dentro do bloco do mixin, você pode definir qualquer conjunto de declarações de estilo que desejar, incluindo seletores, propriedades, valores, etc. Por exemplo:
+
+```
+@mixin borda-arredondada {
+  border-radius: 5px;
+}
+```
+
+Ao incluir o mixin acima em um bloco de estilo, todas as propriedades definidas no mixin serão aplicadas ao elemento selecionado:
+
+```
+.botao {
+  @include borda-arredondada;
+  background-color: #ddd;
+  color: #333;
+  padding: 10px 20px;
+}
+```
+
+No exemplo acima, o mixin `borda-arredondada` foi aplicado à classe `.botao`, resultando em um botão com bordas arredondadas de `5px`, além das outras propriedades definidas no bloco.
+
+O uso de mixins pode ser muito útil para evitar a repetição de código em seus estilos, facilitando a manutenção e a organização do seu código. Além disso, os mixins podem aceitar argumentos e parâmetros, permitindo a criação de estilos ainda mais dinâmicos e reutilizáveis.
+
 #### 6. Cite alguns sistemas de grid CSS
+
+- 1. Bootstrap: O sistema de grid do Bootstrap é um dos mais populares e amplamente utilizados. Ele usa classes como col-md-4 para especificar colunas e container e row para organizar as colunas.
+- 2. Foundation: O sistema de grid do Foundation é semelhante ao do Bootstrap e usa classes como large-4 para especificar colunas. Também possui classes de utilitário para definir largura, empurrar e puxar.
+- 3. Materialize: O Materialize é um framework baseado no Material Design do Google e possui um sistema de grid semelhante ao do Bootstrap, usando classes como col s12 m6 para especificar colunas.
+- 4. Gridlex: O Gridlex é um sistema de grid CSS leve que usa apenas uma classe para definir colunas. Ele também possui classes de utilitário para definir o espaçamento entre as colunas.
+- 5. Susy: O Susy é um sistema de grid CSS flexível e personalizável que usa mixins do Sass para definir colunas e espaçamento. Ele não usa classes no HTML e permite a criação de layouts complexos e personalizados.
 
 #### 7. Quando devo usar as Arrow functions no ES6?
 
+As arrow functions foram introduzidas no ES6 para simplificar a sintaxe de funções e para resolver alguns problemas de escopo de `this` que ocorriam com as funções regulares. As arrow functions são uma maneira concisa de escrever funções anônimas.
+
+Você pode usar arrow functions sempre que precisar de uma função anônima. As principais vantagens das arrow functions em comparação com as funções regulares são:
+
+- 1. Sintaxe simplificada: A sintaxe das arrow functions é mais curta e mais clara, o que pode tornar o código mais fácil de ler e entender. Por exemplo:
+
+```
+// Função regular
+const square = function(x) {
+  return x * x;
+}
+
+// Arrow function
+const square = (x) => {
+  return x * x;
+}
+```
+
+- 2. Escopo do `this` simplificado: Em funções regulares, o valor de `this` pode variar dependendo do contexto em que a função é chamada. Nas arrow functions, o valor de `this` é herdado do escopo pai, o que pode tornar o código mais previsível e menos propenso a erros. Por exemplo:
+
+```
+// Função regular
+const obj = {
+  count: 0,
+  increment: function() {
+    setInterval(function() {
+      this.count++; // o valor de this é o objeto global, não o objeto `obj`
+    }, 1000);
+  }
+}
+
+// Arrow function
+const obj = {
+  count: 0,
+  increment: function() {
+    setInterval(() => {
+      this.count++; // o valor de this é o objeto `obj`
+    }, 1000);
+  }
+}
+```
+
 #### 8. Quando devemos usar generators no ES6?
+
+Os generators são uma funcionalidade poderosa do ES6 que permitem que funções gerem um fluxo de valores sob demanda, em vez de retornar um valor único. Eles podem ser usados em várias situações, como:
+
+- 1. Criação de iteradores personalizados: Os generators podem ser usados para criar iteradores personalizados que podem ser usados para iterar sobre coleções de dados de uma maneira personalizada.
+- 2. Gerenciamento de fluxo de dados assíncronos: Os generators podem ser usados para simplificar o gerenciamento de fluxo de dados assíncronos em JavaScript. Eles permitem que você escreva código assíncrono de maneira síncrona, o que pode tornar o código mais legível e fácil de entender.
+- 3. Gerenciamento de exceções: Os generators permitem que você capture exceções e gerencie erros de maneira mais eficiente do que com callbacks ou promessas. Eles também permitem que você manipule exceções de maneira personalizada, o que pode ajudar a criar um código mais robusto e confiável.
 
 #### 9. Cite algumas características de sistemas reativos
 
+- 1. Responsividade: um sistema reativo deve responder rapidamente a solicitações de entrada e fornecer uma saída oportuna, garantindo que os usuários tenham uma experiência fluida e sem interrupções.
+- 2. Elasticidade: um sistema reativo deve ser capaz de se adaptar à carga de trabalho, escalando para lidar com picos de demanda e voltando ao tamanho original quando a demanda diminuir.
+- 3. Resiliência: um sistema reativo deve ser capaz de lidar com falhas e se recuperar rapidamente delas, permitindo que o sistema continue a funcionar de forma confiável e consistente.
+- 4. Orientado a mensagens: um sistema reativo deve ser orientado a mensagens, permitindo que diferentes partes do sistema se comuniquem de forma assíncrona e desacoplada, o que aumenta a flexibilidade e a escalabilidade do sistema.
+- 5. Modelagem de eventos: um sistema reativo deve ser capaz de modelar eventos de entrada e saída em tempo real, permitindo que o sistema responda rapidamente a mudanças no ambiente e nas necessidades do usuário.
+- 6. Streaming de dados: um sistema reativo deve ser capaz de lidar com grandes quantidades de dados em tempo real, permitindo que os usuários recebam informações continuamente e sem interrupções.
+
 #### 10. Descreva a diferença entre a programação reativa e a programação imperativa
+
+A programação imperativa é o paradigma de programação mais antigo e amplamente utilizado, em que o programador define passo a passo como a máquina deve executar as instruções para resolver um problema. É baseado em instruções sequenciais e ações com efeitos colaterais. Por exemplo, o código imperativo define como um loop deve ser executado ou como uma função deve alterar o estado global do programa.
+
+Por outro lado, a programação reativa é um paradigma de programação baseado em fluxos de dados e eventos. Em vez de explicitamente definir como as ações devem ser executadas, a programação reativa reage a mudanças de estado e eventos e usa fluxos de dados para propagar essas mudanças. Em outras palavras, a programação reativa é uma forma de programação declarativa, que se concentra mais no que deve ser feito do que em como fazer isso.
+
+A programação reativa é especialmente útil para construir aplicativos com uma grande quantidade de eventos e atualizações de estado em tempo real, como aplicativos de streaming, jogos, aplicativos de negociação em tempo real, etc. É altamente responsiva, escalável e resiliente. Alguns exemplos de bibliotecas e frameworks que implementam a programação reativa são o ReactiveX, o RxJS e o Akka.
 
 #### 11. Qual é a diferença entre Promises e Observables?
 
-#### 12. Como acessar a store redux fora de um componente react?
+Promises e Observables são duas abstrações para trabalhar com operações assíncronas em JavaScript. Embora ambos sejam usados para lidar com código assíncrono, eles têm diferenças significativas em como funcionam e como são usados.
 
-#### 13. Quais são as desvantagens do Redux em relação ao Flux?
-
-#### 14. Qual a maneira correta de acessar a Redux store?
+- Promises são objetos que representam um valor que pode estar disponível agora, no futuro ou nunca. Uma Promise pode estar em um dos três estados: pendente, resolvida ou rejeitada. As Promises resolvem o problema de callbacks hell (callback hell é um cenário onde temos várias chamadas de retorno aninhadas que se tornam difíceis de manter e depurar) e permitem que você encadeie várias chamadas assíncronas com clareza. Além disso, as Promises têm métodos para lidar com diferentes estados, como then() e catch().
+- Observables são sequências de eventos que podem ser assíncronos e contínuos. Eles são semelhantes a Promises, mas podem retornar vários valores em vez de um único valor. Observables são usados para lidar com eventos que podem ocorrer várias vezes e em um intervalo de tempo não especificado. Eles têm operadores poderosos que permitem filtrar, transformar e combinar eventos.
 
 #### 15. O que é "git cherry-pick"?
 
+O git cherry-pick é um comando do Git que permite "copiar" um ou mais commits específicos de uma branch para outra. Isso é útil quando você quer aplicar um conjunto específico de mudanças em uma branch diferente daquela em que as mudanças foram originalmente feitas.
+
+Para usar o git cherry-pick, primeiro você precisa saber o hash do commit que deseja copiar. Em seguida, você pode executar o comando git cherry-pick seguido do hash do commit:
+
+```
+git cherry-pick <hash-do-commit>
+```
+
+Você também pode especificar vários hashes de commits, separados por espaços, para aplicar vários commits de uma vez:
+
+```
+git cherry-pick <hash-do-commit1> <hash-do-commit2> <hash-do-commit3> ...
+```
+
+Quando você executa o comando git cherry-pick, o Git aplica as alterações do commit especificado na branch atual em que você está. Se houver conflitos, o Git informará e você deverá resolvê-los manualmente.
+
+É importante notar que o git cherry-pick cria uma nova confirmação com as mudanças do commit copiado, o que significa que o histórico de confirmações da branch de destino será diferente daquele da branch original.
+
 #### 16. O que é um WebWorker?
+
+Web Worker é uma tecnologia de navegador que permite a execução de scripts JavaScript em segundo plano, sem afetar o desempenho e a capacidade de resposta da interface do usuário. Ele permite que o JavaScript seja executado em uma thread separada do thread principal do navegador, o que evita bloqueios de interface do usuário e melhora a capacidade de resposta do aplicativo.
+
+Os Web Workers são uma forma de processamento paralelo em JavaScript, em que um script pode executar em paralelo com outros scripts sem interferir no desempenho do navegador. Eles podem ser usados para executar cálculos pesados, como processamento de imagem, análise de dados e outras tarefas que podem levar a bloqueios ou lentidão no thread principal do navegador.
+
+Existem três tipos de Web Workers:
+
+- Dedicated Workers: são executados em uma única thread e possuem um único script de origem que é carregado e executado quando o Worker é criado.
+- Shared Workers: são executados em uma única thread e compartilham um script de origem entre várias janelas do navegador ou guias que se comunicam com o Worker.
+- Service Workers: são executados em segundo plano e são usados para gerenciar cache de rede, push notifications e outras funcionalidades relacionadas a rede.
 
 #### 17. O que é o DOM?
 
+O DOM (Document Object Model) é uma interface de programação de aplicativos (API) para documentos HTML e XML. Ele representa a página da web como um documento estruturado em objetos que podem ser manipulados por linguagens de programação, como JavaScript.
+
+O DOM é uma representação em árvore da estrutura do documento, onde cada elemento da página é um nó na árvore. Com o DOM, é possível alterar dinamicamente o conteúdo e a aparência de uma página da web com base nas interações do usuário ou em eventos do sistema, como a conclusão do carregamento da página.
+
+O DOM também permite que o JavaScript acesse e manipule os elementos da página, incluindo o conteúdo, estilo e atributos dos elementos, bem como as propriedades dos nós da árvore DOM.
+
 #### 18. Qual a diferença de localStorage e sessionStorage?
+
+localStorage e sessionStorage são recursos fornecidos pelo objeto `window` do JavaScript, que permitem o armazenamento de dados no navegador. Eles são semelhantes, mas diferem em alguns aspectos importantes:
+
+- Escopo: <br/>
+  O localStorage armazena os dados de forma persistente no navegador, mesmo depois que a página é fechada e reaberta, enquanto o sessionStorage armazena os dados apenas durante a sessão atual do usuário na página. Ou seja, quando a sessão é encerrada, os dados são perdidos.
+- Compartilhamento de dados entre abas/janelas do navegador: <br/>
+  Se você abrir duas abas do mesmo site e armazenar dados no localStorage, esses dados serão compartilhados entre as duas abas. Já no caso do sessionStorage, os dados não são compartilhados entre as duas abas.
+- Limite de armazenamento: <br/>
+  Os limites de armazenamento para ambos são definidos pelo navegador e podem variar entre navegadores. Normalmente, localStorage tem um limite de armazenamento maior do que sessionStorage.
+- Métodos de armazenamento: <br/>
+  Tanto o localStorage quanto o sessionStorage usam os mesmos métodos de armazenamento de chave/valor, ou seja, o `.setItem(key, value)` e o `.getItem(key)`.
+
+Como acessar:
+Para acessar tanto o localStorage quanto o sessionStorage, você pode utilizar a API do window, como por exemplo:
+
+```
+localStorage.setItem('chave', 'valor');
+let valor = localStorage.getItem('chave');
+
+sessionStorage.setItem('chave', 'valor');
+let valor = sessionStorage.getItem('chave');
+```
+
+Em resumo, se você precisar armazenar dados permanentes que precisam estar disponíveis para o usuário em futuras visitas ao site, use o localStorage. Já se você precisar armazenar dados apenas para a sessão atual do usuário na página, use o sessionStorage.
 
 #### 19. Como evitar callback hells?
 
+No Angular, o uso de Observables pode ajudar a evitar o callback hell, que é um problema comum ao lidar com chamadas assíncronas comuns em aplicações web. Os Observables são usados para trabalhar com fluxos de dados assíncronos em tempo real, permitindo que os desenvolvedores gerenciem eventos em tempo real sem precisar lidar com callbacks aninhados.
+
+Outra maneira de evitar callback hell no Angular é usar Promises. As Promises permitem que os desenvolvedores manipulem fluxos de dados assíncronos de forma mais limpa e organizada, evitando aninhar callbacks. Ao contrário dos callbacks, as Promises podem ser encadeadas para executar uma série de operações em ordem, tornando o código mais legível e mais fácil de entender.
+
+Além disso, o uso de async/await pode simplificar ainda mais o código assíncrono no Angular. Ao usar async/await, os desenvolvedores podem escrever código assíncrono em uma sintaxe síncrona, o que torna o código mais legível e fácil de entender. Isso é especialmente útil ao lidar com chamadas assíncronas em cadeia, onde vários callbacks podem se tornar difíceis de gerenciar e manter.
+
 #### 20. O que é Injeção de Dependencia?
+
+No Angular, a injeção de dependência é um padrão de design que permite que um objeto receba dependências de outros objetos em tempo de execução. É uma técnica que ajuda a manter um código limpo, modular e fácil de testar.
+
+Em termos simples, a injeção de dependência no Angular é o processo de passar uma dependência para um componente, serviço ou diretiva em tempo de execução. Essa dependência é então usada pelo componente para executar uma determinada tarefa.
+
+O Angular fornece um mecanismo de injeção de dependência integrado, que é gerenciado pelo próprio framework. A injeção de dependência no Angular é feita usando os decoradores `@Injectable` e `@Inject`:
+
+- `@Injectable`: é um decorador usado para marcar uma classe como um provedor de serviço que pode ser injetado em outros componentes ou serviços.
+- `@Inject`: é um decorador usado para fornecer a dependência necessária para um componente, serviço ou diretiva.
+
+O Angular fornece vários tipos de provedores de serviço que podem ser usados para fornecer dependências, como `ClassProvider`, `ValueProvider`, `FactoryProvider`, `ExistingProvider`, etc. É importante saber escolher o tipo de provedor certo para cada caso.
+
+Por fim, a injeção de dependência no Angular é usada para evitar a criação excessiva de instâncias de objetos, melhorar a modularidade do código e permitir a fácil substituição de dependências em tempo de execução
 
 #### 21. O que é a keyword "new" em JavaScript?
 
-#### 22. Explique o conceito de Server Side Rendering.Cite algum framework com esse proposito
+A keyword 'new' em JavaScript é usada para criar uma nova instância de um objeto a partir de uma função construtora. Quando usada com uma função que foi definida com a intenção de ser um construtor (por convenção, essas funções têm a primeira letra maiúscula), a palavra-chave 'new' cria um novo objeto vazio e o associa ao valor 'this' dentro da função construtora. A função construtora pode, então, adicionar propriedades e métodos ao objeto e, eventualmente, retorná-lo para o chamador.
+
+Aqui está um exemplo básico de como usar a palavra-chave 'new':
+
+```
+function Pessoa(nome) {
+  this.nome = nome;
+}
+
+const pessoa1 = new Pessoa('João');
+console.log(pessoa1.nome); // saída: 'João'
+```
+
+Neste exemplo, criamos uma função construtora chamada 'Pessoa' que aceita um argumento 'nome' e adiciona uma propriedade 'nome' ao objeto associado a 'this'. Em seguida, criamos uma nova instância de 'Pessoa' usando a palavra-chave 'new' e atribuímos o resultado a 'pessoa1'. Podemos acessar a propriedade 'nome' do objeto usando 'pessoa1.nome'.
+
+#### 22. Explique o conceito de Server Side Rendering
+
+Server-side rendering (SSR) no Angular é o processo de renderizar o conteúdo do aplicativo do lado do servidor antes de enviar para o navegador do usuário. Isso difere do modelo tradicional do Angular, onde todo o aplicativo é renderizado no navegador do usuário. Com o SSR, o servidor envia ao navegador uma versão pré-renderizada da página que pode ser exibida instantaneamente, enquanto o aplicativo carrega em segundo plano.
+
+Existem várias vantagens em usar o SSR no Angular:
+
+- Melhor SEO: O conteúdo pré-renderizado é facilmente acessível para mecanismos de busca, o que pode melhorar a visibilidade do aplicativo nos resultados de pesquisa.
+- Melhor desempenho inicial: Como parte do conteúdo já é renderizado no servidor, o navegador do usuário pode exibir a página mais rapidamente, reduzindo a latência percebida pelo usuário.
+- Acessibilidade: A versão pré-renderizada da página pode ser exibida para usuários com deficiência visual que utilizam tecnologias assistivas.
+
+Para implementar o SSR no Angular, é necessário criar um servidor Node.js que possa executar o Angular Universal, um módulo que fornece a funcionalidade necessária para pré-renderizar o aplicativo. Isso envolve a criação de componentes e modelos específicos para o servidor, que são usados ​​para renderizar a versão pré-renderizada da página. Além disso, o Angular Universal também fornece suporte para o gerenciamento do estado da aplicação, para garantir que a versão pré-renderizada seja consistente com a versão completa.
 
 #### 23. O que são Estrutura de dados e porque elas são importantes?
 
+Estrutura de dados é uma maneira organizada e estruturada de armazenar e manipular dados em um computador. É uma parte fundamental da ciência da computação e é usada em uma ampla variedade de aplicativos, desde bancos de dados de empresas até videogames e aplicações web. A escolha correta da estrutura de dados pode ter um impacto significativo no desempenho e eficiência de um programa.
+
+As estruturas de dados são importantes porque permitem que os programadores armazenem e acessem dados de forma eficiente e organizada. Eles ajudam a reduzir a complexidade do código e a melhorar a legibilidade e manutenibilidade. Além disso, as estruturas de dados fornecem uma maneira padronizada de representar informações, permitindo que os desenvolvedores trabalhem em equipe e criem aplicativos mais escaláveis e robustos.
+
 #### 24. O que é renderização progressiva?
+
+A renderização progressiva é uma técnica que permite que o conteúdo de uma página da web seja renderizado gradualmente em vez de esperar por todo o conteúdo para ser processado antes de exibir qualquer coisa ao usuário. Em outras palavras, à medida que o servidor processa os dados, ele envia esses dados em pequenos pedaços para o navegador, que por sua vez renderiza o conteúdo imediatamente. Isso significa que o usuário pode começar a interagir com a página mais rapidamente, mesmo que ainda não esteja completamente carregada.
+
+No contexto do Angular, renderização progressiva se refere ao processo de renderizar e exibir partes da interface do usuário de forma gradual e progressiva, à medida que elas são carregadas pelo servidor ou pelo cliente. Isso pode melhorar significativamente a velocidade de carregamento da página e a experiência do usuário, especialmente em conexões de internet lentas ou dispositivos com capacidades limitadas.
+
+O Angular oferece suporte à renderização progressiva por meio do recurso de pré-renderização, que permite gerar uma versão em HTML da página no lado do servidor e enviá-la para o navegador como resposta à solicitação inicial do usuário. Isso permite que o usuário veja imediatamente a página, mesmo que a parte dinâmica dela ainda não tenha sido carregada.
+
+Outra técnica utilizada pelo Angular para renderização progressiva é a lazy loading, que permite carregar módulos ou componentes de forma assíncrona, sob demanda, à medida que o usuário navega pela aplicação. Isso evita o carregamento desnecessário de recursos e melhora a velocidade geral da aplicação.
 
 #### 25. Para que servem os data-attributes?
 
+Os data attributes são atributos HTML personalizados que podem ser adicionados a elementos HTML para armazenar informações adicionais sobre esses elementos. Eles são chamados de "data-" seguidos pelo nome do atributo personalizado. Por exemplo, se você quiser armazenar informações sobre um produto em uma tabela HTML, poderia adicionar um atributo personalizado como "data-product-id" ou "data-product-name" a cada linha da tabela.
+
+Os data attributes são úteis porque permitem que os desenvolvedores adicionem informações personalizadas a elementos HTML sem comprometer a semântica do documento ou interferir com os atributos padrão do HTML. Eles também podem ser usados ​​por scripts e estilos para selecionar e manipular elementos com base em suas informações personalizadas.
+
+No contexto do JavaScript e do CSS, os data attributes podem ser usados para selecionar elementos de maneira mais precisa e específica do que com classes e identificadores, permitindo assim uma maior flexibilidade na manipulação do DOM. Por exemplo, você pode usar um data attribute para selecionar todos os elementos que compartilham uma determinada informação personalizada, independentemente de sua classe ou identificador.
+
+No Angular, geralmente utilizamos as propriedades de componentes para passar dados entre componentes ou para adicionar informações adicionais a elementos HTML. Através das propriedades, podemos passar dados complexos ou tipos primitivos, como strings, números ou booleanos.
+
+No entanto, se for necessário passar um dado específico que não pode ser adicionado como propriedade, pode-se usar o atributo `data` em um elemento HTML para armazenar o dado em questão. Esse atributo pode ser acessado no componente correspondente através do objeto `ElementRef` e do método `getAttribute()`.
+
+Por exemplo, no HTML, pode-se adicionar um atributo data em um elemento `<button>`:
+
+```
+<button data-foo="bar">Clique aqui</button>
+```
+
+No componente correspondente, pode-se acessar esse atributo através do objeto ElementRef:
+
+```
+import { Component, ElementRef } from '@angular/core';
+
+@Component({
+  selector: 'app-exemplo',
+  template: '<button data-foo="bar" (click)="clique()">Clique aqui</button>'
+})
+export class ExemploComponent {
+  constructor(private elementRef: ElementRef) {}
+
+  clique() {
+    const foo = this.elementRef.nativeElement.querySelector('button').getAttribute('data-foo');
+    console.log(foo); // Output: "bar"
+  }
+}
+```
+
 #### 26. Explique a diferença entre funções sincronas e assíncronas.
+
+As funções síncronas e assíncronas diferem na forma como elas lidam com a execução de código e o fluxo de controle em um programa.
+
+Uma função síncrona é uma função que executa seu código de forma sequencial, linha por linha, aguardando a conclusão de cada operação antes de passar para a próxima. Ela bloqueia o fluxo de execução do programa até que ela termine sua execução. Ou seja, quando uma função síncrona é chamada, o programa aguarda até que ela termine para continuar sua execução.
+
+Por outro lado, uma função assíncrona é uma função que executa em segundo plano, permitindo que outras operações continuem enquanto ela executa. Essa função não bloqueia o fluxo de execução do programa, permitindo que outras operações sejam executadas enquanto aguarda o resultado de sua operação. Em vez de bloquear o fluxo de execução do programa, a função assíncrona retorna uma promise que pode ser resolvida com o resultado da operação.
 
 #### 27. Qual a diferença entre os métodos setTimeout e setInterval?
 
+Ambos `setTimeout() `e `setInterval()` são métodos de temporização no JavaScript que executam uma função após um determinado intervalo de tempo. No entanto, há uma diferença fundamental entre os dois.
+
+A função `setTimeout()` é usada para atrasar a execução de uma função por um intervalo de tempo específico (em milissegundos). A função é executada uma única vez depois que o tempo especificado expira. É comumente usado para criar atrasos ou para agendar uma única execução de uma tarefa no futuro.
+
+Por outro lado, a função `setInterval()` é usada para executar uma função repetidamente em intervalos regulares. A função é executada várias vezes depois que o intervalo de tempo especificado expira, até que seja explicitamente cancelada. É comumente usado para criar animações ou atualizar dados em tempo real em uma página da web.
+
 #### 28. O que é um construtor?
+
+Em JavaScript, um construtor é uma função especial que é usada para criar e inicializar objetos. Quando uma função é definida como construtora, ela pode ser invocada com a palavra-chave new para criar um novo objeto. Esse objeto é então retornado pela função construtora.
+
+O construtor é usado para definir as propriedades e métodos de um objeto quando ele é criado. As propriedades do objeto são definidas usando a palavra-chave this dentro do corpo da função construtora. O this se refere ao objeto que está sendo criado.
+
+Por exemplo, vamos criar um construtor para um objeto Pessoa que terá as propriedades nome e idade:
+
+```
+function Pessoa(nome, idade) {
+  this.nome = nome;
+  this.idade = idade;
+}
+```
+
+Em JavaScript, um construtor é uma função especial que é usada para criar e inicializar objetos. Quando uma função é definida como construtora, ela pode ser invocada com a palavra-chave new para criar um novo objeto. Esse objeto é então retornado pela função construtora.
+
+O construtor é usado para definir as propriedades e métodos de um objeto quando ele é criado. As propriedades do objeto são definidas usando a palavra-chave this dentro do corpo da função construtora. O this se refere ao objeto que está sendo criado.
+
+Por exemplo, vamos criar um construtor para um objeto `Pessoa` que terá as propriedades `nome` e `idade`:
+
+javascript
+Copy code
+function Pessoa(nome, idade) {
+this.nome = nome;
+this.idade = idade;
+}
+Em seguida, podemos criar um novo objeto `Pessoa` usando o construtor:
+
+```
+let pessoa1 = new Pessoa('João', 30);
+console.log(pessoa1.nome); // "João"
+console.log(pessoa1.idade); // 30
+```
+
+Dessa forma, o construtor é uma forma de criar objetos com as propriedades e métodos necessários, permitindo que sejam criados vários objetos do mesmo tipo de forma fácil e rápida.
 
 #### 29. Qual a função dos prototypes no JavaScript?
 
+Em JavaScript, os prototypes são usados para compartilhar propriedades e métodos entre objetos. Quando um objeto é criado, ele herda as propriedades e métodos do seu protótipo. Isso significa que, em vez de ter cada objeto com suas próprias propriedades e métodos, é possível ter uma "classe" de objetos que compartilham as mesmas propriedades e métodos, tornando o código mais eficiente e fácil de manter.
+
+Para criar um protótipo, é possível usar a função construtora padrão ou definir uma função personalizada. A partir daí, é possível adicionar propriedades e métodos ao objeto protótipo usando a propriedade `prototype`. Por exemplo:
+
+```
+function Pessoa(nome, idade) {
+  this.nome = nome;
+  this.idade = idade;
+}
+
+Pessoa.prototype.cumprimentar = function() {
+  console.log(`Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`);
+};
+
+let pessoa1 = new Pessoa("João", 30);
+let pessoa2 = new Pessoa("Maria", 25);
+
+pessoa1.cumprimentar(); // Olá, meu nome é João e tenho 30 anos.
+pessoa2.cumprimentar(); // Olá, meu nome é Maria e tenho 25 anos.
+```
+
+Nesse exemplo, a função `Pessoa` é usada como construtora para criar objetos que possuem as propriedades `nome` e `idade`. Além disso, o método cumprimentar é adicionado ao protótipo da função `Pessoa`. Isso significa que todos os objetos criados a partir da função `Pessoa` herdam esse método e podem usá-lo.
+
 #### 30. O que são High Order Functions
+
+High-order functions são funções que recebem outras funções como argumentos e/ou retornam outras funções como resultado. Em outras palavras, elas tratam funções como valores de primeira classe, permitindo que sejam usadas de forma mais flexível e modular em um programa.
+
+Um exemplo simples de high-order function é a função map(), que é usada em muitas linguagens de programação, incluindo JavaScript. A função map() recebe uma função de transformação como argumento e aplica essa função a cada elemento de um array, retornando um novo array com os valores transformados.
+
+Outro exemplo de high-order function é a função filter(), que recebe uma função de filtro como argumento e retorna um novo array com os elementos que atendem aos critérios definidos pela função de filtro.
+
+High-order functions são úteis porque permitem que o código seja mais genérico e reutilizável, reduzindo a duplicação de código e tornando o programa mais fácil de manter e evoluir. Além disso, elas permitem que as funções sejam compostas e combinadas de forma mais flexível, tornando a programação mais expressiva e poderosa.
 
 ## Senior
 
@@ -521,8 +875,6 @@ Por outro lado, uma estratégia mobile-first é um processo de design e desenvol
 
 #### 14. Explique um caso de uso do Docker
 
-#### 15. O que é o React Hooks?
-
 #### 16. Como você abordaria a correção de problemas de estilo específicos do navegador?
 
 #### 17. Angular: O que são lifecycle hooks para componentes e diretivas?
@@ -532,8 +884,6 @@ Por outro lado, uma estratégia mobile-first é um processo de design e desenvol
 #### 19. Quando se usar uma classe abstrata?
 
 #### 20. Explique o conceito de encapsulamento de dados
-
-#### 21. React: O que são fragments?
 
 #### 22. Porque você criaria classes estáticas?
 
@@ -580,8 +930,6 @@ Por outro lado, uma estratégia mobile-first é um processo de design e desenvol
 #### 12. Como estilizar um elemento que está após o elemento selecionado?
 
 #### 13. Explique como 'this' funciona no JavaScript
-
-#### 14. Cite outros frameworks que fazem o mesmo que o React,Angular e Vue
 
 #### 15. Qual dos dois é mais seguro, JWT ou OAuth2?
 

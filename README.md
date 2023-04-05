@@ -243,7 +243,8 @@ TypeScript é um superset da linguagem JavaScript que adiciona recursos de tipag
 - 5. Maior compatibilidade: O TypeScript é compatível com JavaScript e pode ser usado em projetos que usam JavaScript existente. Ele também pode ser usado em vários ambientes, incluindo navegadores da web, Node.js e outros.
 
      19.`O que é uma interface no TypeScript?`<br/>
-     No TypeScript, uma interface é um recurso que permite definir um contrato ou um conjunto de regras que devem ser seguidas por um objeto. Ela define a estrutura dos dados que um objeto deve ter, mas não implementa nenhuma funcionalidade. A interface é um recurso de tempo de compilação e não é convertida em código JavaScript quando o código TypeScript é compilado.
+
+No TypeScript, uma interface é um recurso que permite definir um contrato ou um conjunto de regras que devem ser seguidas por um objeto. Ela define a estrutura dos dados que um objeto deve ter, mas não implementa nenhuma funcionalidade. A interface é um recurso de tempo de compilação e não é convertida em código JavaScript quando o código TypeScript é compilado.
 
 As interfaces podem ser usadas para definir tipos personalizados e ajudar na validação de tipos em tempo de compilação. Elas são amplamente utilizadas em programação orientada a objetos e programação funcional.
 
